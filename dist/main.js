@@ -81,43 +81,45 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/server/server-dev.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/server/server-dev.js":
-/*!**********************************!*\
-  !*** ./src/server/server-dev.js ***!
-  \**********************************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst HTML_FILE = path__WEBPACK_IMPORTED_MODULE_0___default.a.join(__dirname, \"src\", \"html\", \"index.html\");\nconst PORT = process.env.PORT || 8080;\nconst app = express__WEBPACK_IMPORTED_MODULE_1___default()();\napp.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static(__dirname));\napp.get(\"*\", (req, res) => {\n  res.sendFile(HTML_FILE);\n});\napp.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));\n\n//# sourceURL=webpack:///./src/server/server-dev.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/logger */ "./src/js/logger.js");
+ // Log message to console
+
+Object(_js_logger__WEBPACK_IMPORTED_MODULE_0__["default"])("Successful express-webpack integration!");
+const node = document.querySelector("#app");
+const el = document.createElement("p");
+el.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/103px-Wikipedia-logo-v2.svg.png" height="42" width="42">';
+node.appendChild(el);
 
 /***/ }),
 
-/***/ "express":
+/***/ "./src/js/logger.js":
 /*!**************************!*\
-  !*** external "express" ***!
+  !*** ./src/js/logger.js ***!
   \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const logMessage = msg => console.log(msg);
 
-/***/ }),
-
-/***/ "path":
-/*!***********************!*\
-  !*** external "path" ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+/* harmony default export */ __webpack_exports__["default"] = (logMessage);
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=main.js.map

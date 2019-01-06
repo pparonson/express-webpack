@@ -5,7 +5,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   entry: {
-    server: path.join(__dirname, "server.js")
+    // server: path.join(__dirname, "src", "index.js")
+    main: "./src/index.js"
   }
   , output: {
     // built files are stored in dist
@@ -17,7 +18,8 @@ module.exports = {
     // We add hash to filename to avoid caching issues
     , filename: "[name].js"
   }
-  , target: "node"
+  , target: "web"
+  , devtool: "#source-map"
   , node: {
     // Need this when working with express, otherwise the build fails
     __dirname: false,   // if you don't put this is, __dirname
@@ -41,12 +43,18 @@ module.exports = {
         // Entry point is set below in HtmlWebPackPlugin in Plugins
         test: /\.html$/
         , use: [{loader: "html-loader"}]
+        // , options: { minimize: true }
+      }
+      , {
+        test: /\.(png|svg|jpg|gif)$/
+        , use: ["file-loader"]
       }
     ]
   }
   , plugins: [
     new HtmlWebPackPlugin({
-      template: "./index.html"
+      // "./src/html/index.html"
+      template: "./src/html/index.html"
       , filename: "./index.html"
       // excludeChunks will exclude a file called server which we don’t want to
       // be included into our HTML file, since that is the webserver, and not

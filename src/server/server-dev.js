@@ -1,7 +1,7 @@
 import path from "path"
 import express from "express"
 
-const HTML_FILE = path.join(__dirname, "index.html")
+const HTML_FILE = path.join(__dirname, "src", "html", "index.html")
 const PORT = process.env.PORT || 8080
 
 const app = express()
